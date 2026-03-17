@@ -36,7 +36,14 @@ export default function HeroCanvas() {
     const { width, height } = canvas;
     ctx.clearRect(0, 0, width, height);
 
-    const scale = Math.min(width / img.naturalWidth, height / img.naturalHeight);
+    const isMobile = width < 768;
+    
+    // On mobile, we use a "cover" style scale to fill the frame vertically
+    // On desktop, we use "contain" to keep the full product in view
+    const scale = isMobile
+      ? Math.max(width / img.naturalWidth, height / img.naturalHeight) * 1.1
+      : Math.min(width / img.naturalWidth, height / img.naturalHeight);
+
     const scaledW = img.naturalWidth * scale;
     const scaledH = img.naturalHeight * scale;
     const offsetX = (width - scaledW) / 2;
