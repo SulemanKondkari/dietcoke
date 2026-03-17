@@ -1,0 +1,55 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: #FAFAFA;
+  --color-bg-secondary: #F2F2F2;
+  --color-bg-dark: #0A0A0A;
+  --color-red: #E4002B;
+  --color-red-light: #FF3352;
+  --color-silver: #C8C8C8;
+  --color-silver-light: #EBEBEB;
+  --color-text-primary: #111111;
+  --color-text-secondary: #555555;
+  --color-text-muted: #999999;
+  --color-white: #FFFFFF;
+
+  --font-display: "GT Walsheim", "Inter", sans-serif;
+  --font-body: "Neue Haas Grotesk", "Inter", sans-serif;
+
+  --spacing-4: 4px;
+  --spacing-8: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-32: 32px;
+  --spacing-48: 48px;
+  --spacing-64: 64px;
+  --spacing-80: 80px;
+  --spacing-96: 96px;
+  --spacing-128: 128px;
+  --spacing-160: 160px;
+  --spacing-192: 192px;
+  --spacing-240: 240px;
+
+  --radius-pill: 9999px;
+  --radius-card: 16px;
+  --radius-tag: 8px;
+  --radius-img: 12px;
+}
+
+:root {
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body);
+  @apply antialiased overflow-x-hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-display);
+}
+
