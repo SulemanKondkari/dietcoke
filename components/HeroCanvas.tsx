@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import { useScroll, useSpring, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useSpring, useTransform, useMotionValueEvent } from "framer-motion";
 import { useFrameSequence } from "@/lib/useFrameSequence";
 
 import TextOverlay from "./TextOverlay";
@@ -67,6 +67,8 @@ export default function HeroCanvas() {
     return () => window.removeEventListener("resize", handleResize);
   }, [isLoaded, frames]);
 
+  const canvasOpacity = useTransform(smoothProgress, [0, 0.05], [0, 1]);
+
   return (
     <div ref={containerRef} className="h-[500vh] relative bg-bg-dark">
       <div className="sticky top-0 w-screen h-screen overflow-hidden">
@@ -90,13 +92,15 @@ export default function HeroCanvas() {
           </div>
         )}
         
-        <canvas
+        <motion.canvas
           ref={canvasRef}
+          style={{ opacity: canvasOpacity }}
           className="absolute inset-0 w-full h-full block will-change-transform z-0"
         />
       </div>
     </div>
   );
 }
+
 
 
